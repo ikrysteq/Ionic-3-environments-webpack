@@ -1,13 +1,14 @@
-# Ionic 3 environments webpack
+# Ionic 3 environments webpack configuration
 Environment variables that you can use in your Ionic 3 project
-
+```
 from: https://github.com/ionic-team/ionic-cli/issues/1205
 fiznool commented on 2 Feb :
-
+```
 
 
 Inspired by the solution from @tabirkeland I thought I'd post my own version of this. The differences with the script below vs the original solution:
-
+```
+```
 The Ionic webpack.config script is built upon, not replaced, meaning that any updates to @ionic/app-scripts should be merged in.
 The script is aware of Ionic's --prod flag, allowing you to provide separate configuration for dev and prod builds.
 There is no dependency on dotenv.
