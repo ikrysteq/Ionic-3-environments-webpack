@@ -1,6 +1,6 @@
 # Ionic 3 environments webpack configuration
-Environment variables that you can use in your Ionic 3 project
----
+#### Environment variables that you can use in your Ionic 3 project
+
 from fiznool comment: https://github.com/ionic-team/ionic-cli/issues/1205
 some files were modified (added chalk and console logs)
 
