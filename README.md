@@ -17,16 +17,20 @@ Create a file at config/webpack.config.js and paste the following content:
 // Set the `ENV` global variable to be used in the app.
 var path = require('path');
 var webpack = require('webpack');
+var chalk = require('chalk');
 
 var projectRootDir = process.env.IONIC_ROOT_DIR;
 var appScriptsDir = process.env.IONIC_APP_SCRIPTS_DIR;
 
 var config = require(path.join(appScriptsDir, 'config', 'webpack.config.js'));
 
-var env = process.env.IONIC_ENV || 'dev';
+var env = process.env.IONIC_ENV ? process.env.IONIC_ENV : 'dev';
+console.log(chalk.green(`ENV: [`, chalk.underline.yellow(`${env}`), `]`));
+console.log(chalk.green(`DIR: [`, chalk.underline.yellow(`${projectRootDir}`), `]`));
+
 var envVars;
 try {
-  envVars = require(path.join(projectRootDir, 'env', env + '.json'));
+  envVars = require(path.join(projectRootDir, './src/config/', env + '.json'));
 } catch(e) {
   envVars = {};
 }
