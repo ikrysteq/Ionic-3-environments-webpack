@@ -13,7 +13,7 @@ There is no dependency on dotenv.
 Here's the steps to get it all working:
 
 Create a file at config/webpack.config.js and paste the following content:
-```
+```javascript
 // Set the `ENV` global variable to be used in the app.
 var path = require('path');
 var webpack = require('webpack');
@@ -49,20 +49,20 @@ module.exports = config;
 ```
 
 Add the following entry to your package.json:
-```
+```json
   "config": {
     "ionic_webpack": "./config/webpack.config.js"
   }
 ```
 If you need additional configuration, create two files env/dev.json and env/prod.json. In here, put any configuration you need for that environment. Your json should be an object of key-value pairs, which will be made available for use in your application.
-```
+```json
 {
   "enableLogging": true,
   "apiServerUrl": "\"http://example.com/api\""
 }
 ```
 Now, you can use the ENV global constant anywhere in your .ts files:
-```
+```typescript
 declare const ENV;
 
 if(ENV.environment === 'dev') {
@@ -75,8 +75,8 @@ if(ENV.environment === 'dev') {
 ```
 The script creates an ENV object with a single key, environment, which is set to prod if you run your ionic command with the --prod flag. Otherwise, this will be dev.
 
-The env/dev.json and env/prod.json files are optional. If present, the script will merge the appropriate object into ENV. The script above uses webpack's DefinePlugin, so remember to 'stringify' any string values, otherwise webpack will assume you want to insert a code fragment. For example:
-```
+The env/dev.json and env/prod.json files are optional. If present, the script will merge the appropriate object into ENV. The script above uses webpack's [DefinePlugin](https://webpack.github.io/docs/list-of-plugins.html#dependency-injection), so remember to 'stringify' any string values, otherwise webpack will assume you want to insert a code fragment. For example:
+```json
 {
   "apiServerUrl": "\"http://example.com/api\""
 }
