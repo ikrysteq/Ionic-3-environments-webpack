@@ -1,9 +1,11 @@
 # Ionic 3 environments webpack configuration
 Environment variables that you can use in your Ionic 3 project
+---
+from fiznool comment: https://github.com/ionic-team/ionic-cli/issues/1205
+some files were modified (added chalk and console logs)
 
-from: https://github.com/ionic-team/ionic-cli/issues/1205
-fiznool commented on 2 Feb :
-
+## fiznool commented on 2 Feb :
+---
 
 Inspired by the solution from @tabirkeland I thought I'd post my own version of this. The differences with the script below vs the original solution:
 
@@ -12,7 +14,7 @@ The script is aware of Ionic's --prod flag, allowing you to provide separate con
 There is no dependency on dotenv.
 Here's the steps to get it all working:
 
-Create a file at config/webpack.config.js and paste the following content:
+##### Create a file at config/webpack.config.js and paste the following content:
 ```javascript
 // Set the `ENV` global variable to be used in the app.
 var path = require('path');
@@ -52,7 +54,7 @@ if(env === 'prod') {
 module.exports = config;
 ```
 
-Add the following entry to your package.json:
+##### Add the following entry to your package.json:
 ```json
   "config": {
     "ionic_webpack": "./config/webpack.config.js"
@@ -65,7 +67,7 @@ If you need additional configuration, create two files env/dev.json and env/prod
   "apiServerUrl": "\"http://example.com/api\""
 }
 ```
-Now, you can use the ENV global constant anywhere in your .ts files:
+##### Now, you can use the ENV global constant anywhere in your .ts files:
 ```typescript
 declare const ENV;
 
