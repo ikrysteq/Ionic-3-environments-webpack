@@ -1,6 +1,10 @@
 # Ionic 3 environments webpack configuration
 #### Environment variables that you can use in your Ionic 3 project
-
+```
+WARNING! 
+Custom webpack is compatible with: "@ionic/app-scripts": "2.1.4",
+For @ionic/app-scripts ver. 3.x file 'webpack.config.js' must be modified.
+```
 from fiznool comment: https://github.com/ionic-team/ionic-cli/issues/1205
 
 some files were modified (added chalk and console logs)
